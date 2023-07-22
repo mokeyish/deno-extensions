@@ -32,7 +32,7 @@ String.prototype.trimEnd = function (chars?: string) {
         break;
       }
     }
-    return this.substring(0, i);
+    return this.substring(0, i - 1);
   } else {
     return origin.trimEnd.call(this);
   }
