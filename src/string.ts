@@ -26,13 +26,15 @@ const origin = {
 String.prototype.trimEnd = function (chars?: string) {
   if (chars && this.length > 0) {
     let i = this.length - 1;
-    for (; i >= 0; i--) {
+    while (true) {
       const c = this[i];
-      if (!chars.includes(c)) {
+      if (chars.includes(c)) {
+        i -= 1;
+      } else {
         break;
       }
     }
-    return this.substring(0, i);
+    return this.substring(0, i + 1);
   } else {
     return origin.trimEnd.call(this);
   }
@@ -41,10 +43,12 @@ String.prototype.trimEnd = function (chars?: string) {
 String.prototype.trimStart = function (chars?: string) {
   if (chars && this.length > 0) {
     let i = 0;
-    for (; i < this.length; i++) {
+    while (true) {
       const c = this[i];
-      if (!chars.includes(c)) {
-        break;
+      if (chars.includes(c)) {
+        i +=1;
+      } else {
+        break
       }
     }
     return this.substring(i);
