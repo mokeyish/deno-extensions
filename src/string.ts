@@ -2,15 +2,23 @@
 declare global {
   interface String {
     trimEnd(): string,
+    /**
+     * Removes all the trailing occurrences of a character from the current string. 
+     * @param chars characters to remove
+     */
     trimEnd(chars: string): string,
     trimEnd(chars?: string): string,
 
-    
-    trimStart(): string,
+
+    trimStart(): string,    
+    /**
+    * Removes all the leading occurrences of a character from the current string. 
+    * @param chars characters to remove
+    */
     trimStart(chars: string): string,
     trimStart(chars?: string): string,
 
-    
+
     trim(): string,
     trim(chars: string): string,
     trim(chars?: string): string,
@@ -46,7 +54,7 @@ String.prototype.trimStart = function (chars?: string) {
     while (true) {
       const c = this[i];
       if (chars.includes(c)) {
-        i +=1;
+        i += 1;
       } else {
         break
       }
